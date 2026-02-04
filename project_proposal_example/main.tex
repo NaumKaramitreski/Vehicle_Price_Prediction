@@ -1,0 +1,47 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+% Adjust margins to be standard
+\geometry{margin=1in}
+
+\title{\textbf{Project Proposal: Facial Emotion Recognition Analysis}}
+\author{Student: Jane Doe (ID: 89200123)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Problem Description}
+The objective of this project is to build a computer vision model capable of classifying human facial expressions into discrete emotion categories. This is a multi-class classification problem. I aim to compare the effectiveness of Deep Learning (which captures spatial features) against a traditional Machine Learning baseline on raw pixel data.
+
+\section*{2. Dataset}
+I will use the \textbf{Human Face Emotions} dataset available on Kaggle.
+\begin{itemize}
+    \item \textbf{Link:} \url{https://www.kaggle.com/datasets/samithsachidanandan/human-face-emotions}
+    \item \textbf{Description:} The dataset consists of folder-separated images of human faces.
+    \item \textbf{Target Variable:} There are 5 emotion classes: \textit{Angry, Fear, Happy, Sad, Surprise} with approximately 60k examples total.
+\end{itemize}
+
+\section*{3. Modeling Algorithms}
+I intend to implement and compare two distinct approaches:
+
+\begin{itemize}
+    \item \textbf{Baseline Model (Decision Tree):} To demonstrate the difficulty of image classification without feature extraction, I will use a Decision Tree Classifier (Scikit-Learn). 
+
+    \item \textbf{Primary Model (CNN):} I will build a Convolutional Neural Network using Keras/TensorFlow.
+\end{itemize}
+
+\section*{4. Expected Outcomes}
+\begin{itemize}
+    \item \textbf{Quantitative Evaluation:} I will primarily compare the models using accuracy. I hypothesize the CNN will achieve a high accuracy, while the Decision Tree will struggle to generalize on raw pixels.
+    
+    \item \textbf{Training Diagnostics:} I will plot training vs. validation loss curves to analyze the learning process. I expect to observe overfitting in the Decision Tree (high training accuracy, low test accuracy) compared to the regularized CNN.
+    
+    \item \textbf{Error Analysis:} Beyond a simple score, I will generate \textbf{Confusion Matrices} to identify specific emotional overlaps (e.g., distinguishing \textit{Fear} vs. \textit{Surprise}). I will also visually display the "top 5 worst misclassifications" to understand where the model fails.
+\end{itemize}
+
+\end{document}
