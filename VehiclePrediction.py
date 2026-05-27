@@ -45,3 +45,16 @@ y = df["Price"]
 categorical_cols = X.select_dtypes(include=["object"]).columns
 numerical_cols = X.select_dtypes(include=["int64", "float64"]).columns
 
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+
+preprocessor = ColumnTransformer([
+    ("num", StandardScaler(), numerical_cols),
+    ("cat", OneHotEncoder(handle_unknown="ignore"), categorical_cols)
+])
+
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
