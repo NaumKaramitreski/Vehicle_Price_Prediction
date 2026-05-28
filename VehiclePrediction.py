@@ -58,3 +58,18 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
+
+from sklearn.linear_model import LinearRegression, Ridge
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.neural_network import MLPRegressor
+
+models = {
+    "Linear Regression": LinearRegression(),
+    "Ridge Regression": Ridge(alpha=1.0),
+    "Random Forest": RandomForestRegressor(n_estimators=100, random_state=42),
+    "Neural Network": MLPRegressor(
+        hidden_layer_sizes=(64, 32),
+        max_iter=500,
+        random_state=42
+    )
+}
